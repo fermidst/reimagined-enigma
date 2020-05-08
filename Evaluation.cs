@@ -64,18 +64,5 @@ namespace ConsoleAppDM
 
             return string.IsNullOrEmpty(result) ? result : result.Substring(0, result.Length - 3);
         }
-
-        public static void WriteArray(int columns, int rows, string[][] truthTable, string functionVector)
-        {
-            for (var i = 0; i < columns; i++) Console.Write(Symbols[i] + " ");
-
-            Console.WriteLine("f");
-            for (var i = 0; i < rows; i++)
-            {
-                for (var j = 0; j < columns; j++) Console.Write(truthTable[i][j] + " ");
-
-                Console.WriteLine(functionVector[i]);
-            }
-        }
     }
 }

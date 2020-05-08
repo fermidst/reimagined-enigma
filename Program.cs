@@ -20,8 +20,10 @@ namespace ConsoleAppDM
             Console.WriteLine($"PDNF: {Evaluation.GetPDNF(functionValues, truthTable, columns)}");
             Console.WriteLine($"PCNF: {Evaluation.GetPCNF(functionValues, truthTable, columns)}{Environment.NewLine}");
 
+            // change here
             const int numberInGroup = 3;
             const int groupLastDigit = 5;
+
             var n1 = Convert.ToString(numberInGroup + groupLastDigit, 2);
             var n2 = Convert.ToString(256 - (numberInGroup + groupLastDigit), 2);
             if (n1.Length < 8 || n2.Length < 8)
