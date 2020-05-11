@@ -25,7 +25,7 @@ namespace ConsoleAppDM
                     array[j][i] = "1";
         }
 
-        public static string GetPDNF(string[] funcValues, string[][] truthTable, int columns)
+        public static string GetPdnf(string[] funcValues, string[][] truthTable, int columns)
         {
             var result = string.Empty;
             for (var i = 0; i < funcValues.Length; i++)
@@ -38,7 +38,7 @@ namespace ConsoleAppDM
             return string.IsNullOrEmpty(result) ? result : result.Substring(0, result.Length - 3);
         }
 
-        public static string GetPCNF(string[] funcValues, string[][] truthTable, int columns)
+        public static string GetPcnf(string[] funcValues, string[][] truthTable, int columns)
         {
             var result = string.Empty;
             var k = 1;

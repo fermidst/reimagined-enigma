@@ -40,22 +40,23 @@ namespace ConsoleAppDM
             // todo: add string builder
             var builder = new StringBuilder();
             builder.Append(
-                $"N1 ({numberInGroup}+{groupLastDigit}) {n1} PDNF: {Evaluation.GetPDNF(n1FunctionValues, truthTable, columns)}\n");
+                $"N1 ({numberInGroup}+{groupLastDigit}) {n1} PDNF: {Evaluation.GetPdnf(n1FunctionValues, truthTable, columns)}\n");
             builder.Append(
-                $"N1 ({numberInGroup}+{groupLastDigit}) {n1} PCNF: {Evaluation.GetPCNF(n1FunctionValues, truthTable, columns)}\n");
+                $"N1 ({numberInGroup}+{groupLastDigit}) {n1} PCNF: {Evaluation.GetPcnf(n1FunctionValues, truthTable, columns)}\n");
             builder.Append(
-                $"N2 (256-({numberInGroup}+{groupLastDigit})) {n2} PDNF: {Evaluation.GetPDNF(n2FunctionValues, truthTable, columns)}\n");
+                $"N2 (256-({numberInGroup}+{groupLastDigit})) {n2} PDNF: {Evaluation.GetPdnf(n2FunctionValues, truthTable, columns)}\n");
             builder.Append(
-                $"N2 (256-({numberInGroup}+{groupLastDigit})) {n2} PCNF: {Evaluation.GetPCNF(n2FunctionValues, truthTable, columns)}\n");
+                $"N2 (256-({numberInGroup}+{groupLastDigit})) {n2} PCNF: {Evaluation.GetPcnf(n2FunctionValues, truthTable, columns)}\n");
             builder.Append($"\n{funcVector}\n");
-            builder.Append($"PDNF: {Evaluation.GetPDNF(functionValues, truthTable, columns)}\n");
-            builder.Append($"PCNF: {Evaluation.GetPCNF(functionValues, truthTable, columns)}{Environment.NewLine}");
+            builder.Append($"PDNF: {Evaluation.GetPdnf(functionValues, truthTable, columns)}\n");
+            builder.Append($"PCNF: {Evaluation.GetPcnf(functionValues, truthTable, columns)}{Environment.NewLine}");
 
             var output = builder.ToString();
-
             Console.Write(output);
 
-            await File.WriteAllTextAsync(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "output.txt"), output,
+            var baseDirectory = AppDomain.CurrentDomain.BaseDirectory ?? throw new InvalidOperationException();
+
+            await File.WriteAllTextAsync(Path.Combine(baseDirectory, "output.txt"), output,
                 Encoding.UTF8);
         }
     }
