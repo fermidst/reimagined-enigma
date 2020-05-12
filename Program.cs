@@ -10,6 +10,8 @@ namespace ConsoleAppDM
     {
         private static async Task Main()
         {
+            Console.OutputEncoding = Encoding.UTF8;
+            Console.WriteLine("введите любой вектор булевой функции (8 чисел)");
             var funcVector = Console.ReadLine();
 
             var columns = (int) (Math.Log(funcVector.Length) / Math.Log(2));
@@ -21,9 +23,10 @@ namespace ConsoleAppDM
             var functionValues = funcVector.Select(c => c.ToString()).ToArray();
             Evaluation.GetTruthTable(columns, rows, truthTable);
 
-            // change here
-            const int numberInGroup = 3;
-            const int groupLastDigit = 5;
+            Console.WriteLine("номер в группе");
+            var numberInGroup = Convert.ToInt32(Console.ReadLine());
+            Console.WriteLine("последняя цифра в группе");
+            var groupLastDigit = Convert.ToInt32(Console.ReadLine());
 
             var n1 = Convert.ToString(numberInGroup + groupLastDigit, 2);
             var n2 = Convert.ToString(256 - (numberInGroup + groupLastDigit), 2);
